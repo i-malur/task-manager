@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager - Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>TaskDash</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="active">Painel Principal</a>
+            </nav>
+            <div class="sidebar-footer">
+                <button id="logout-btn" class="btn logout-btn">Sair</button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-header">
+                <h1>Visão Geral</h1>
+                <button id="open-new-task-modal" class="btn primary-btn btn-small">+ Nova Tarefa</button>
+            </header>
+
+            <!-- Stats Row -->
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <h3>Total de Tarefas</h3>
+                    <p id="stat-total" class="stat-value">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Completas</h3>
+                    <p id="stat-completed" class="stat-value">0</p>
+                </div>
+                <div class="stat-card stat-alert">
+                    <h3>Atrasadas</h3>
+                    <p id="stat-delayed" class="stat-value">0</p>
+                </div>
+            </section>
+            
+            <section class="stats-time-grid">
+                <div class="stat-card-small">Feitas Hoje: <span id="stat-today">0</span></div>
+                <div class="stat-card-small">Nesta Semana: <span id="stat-week">0</span></div>
+                <div class="stat-card-small">Neste Mês: <span id="stat-month">0</span></div>
+            </section>
+
+            <!-- Kanban Board -->
+            <section class="kanban-board">
+                <div class="kanban-column" id="col-todo">
+                    <div class="column-header">Não Iniciada (<span id="count-todo">0</span>)</div>
+                    <div class="column-content" data-status="Não Iniciada"></div>
+                </div>
+                <div class="kanban-column" id="col-progress">
+                    <div class="column-header">Em Progresso (<span id="count-progress">0</span>)</div>
+                    <div class="column-content" data-status="Em Progresso"></div>
+                </div>
+                <div class="kanban-column" id="col-done">
+                    <div class="column-header">Finalizada (<span id="count-done">0</span>)</div>
+                    <div class="column-content" data-status="Finalizada"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal Nova/Editar Tarefa -->
+    <div id="task-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2 id="modal-title">Nova Tarefa</h2>
+            <form id="task-form">
+                <input type="hidden" id="task-id">
+                <div class="form-group">
+                    <label>Título</label>
+                    <input type="text" id="task-title" required>
+                </div>
+                <div class="form-group">
+                    <label>Descrição</label>
+                    <textarea id="task-desc" rows="3"></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label>Prazo</label>
+                        <input type="date" id="task-date" required>
+                    </div>
+                    <div class="form-group half">
+                        <label>Tipo</label>
+                        <select id="task-type">
+                            <option value="Casa">Casa</option>
+                            <option value="Escola">Escola</option>
+                            <option value="Faculdade">Faculdade</option>
+                            <option value="Trabalho">Trabalho</option>
+                            <option value="Outros">Outros</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Prioridade</label>
+                    <select id="task-priority">
+                        <option value="Baixa">Baixa</option>
+                        <option value="Média">Média</option>
+                        <option value="Alta">Alta</option>
+                    </select>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn cancel-btn" id="close-modal-btn">Cancelar</button>
+                    <button type="submit" class="btn primary-btn">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

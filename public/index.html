@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager - Bem-vindo</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="auth-body">
+    <div class="auth-container">
+        <!-- Área de Login -->
+        <div id="login-section" class="auth-card">
+            <h2>Entrar</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-email">E-mail</label>
+                    <input type="email" id="login-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Senha</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <button type="submit" class="btn primary-btn">Entrar</button>
+                <p class="auth-switch">Não tem uma conta? <a href="#" id="go-to-register">Cadastre-se</a></p>
+                <div id="login-error" class="error-msg"></div>
+            </form>
+        </div>
+
+        <!-- Área de Cadastro -->
+        <div id="register-section" class="auth-card hidden">
+            <h2>Cadastro</h2>
+            <form id="register-form">
+                <div class="form-group">
+                    <label for="reg-email">E-mail</label>
+                    <input type="email" id="reg-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-password">Senha</label>
+                    <input type="password" id="reg-password" required>
+                    <small class="hint">A senha deve ter 8+ caracteres, com maiúsculas, minúsculas, números e caracteres especiais.</small>
+                </div>
+                <button type="submit" class="btn primary-btn">Criar Conta</button>
+                <p class="auth-switch">Já tem conta? <a href="#" id="go-to-login">Faça Login</a></p>
+                <div id="reg-error" class="error-msg"></div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+</body>
+</html>
